@@ -79,7 +79,20 @@
         $('#btn-tranfer').click(function(){
             // Mã hóa thay thế
             if ($('#type').val() == 1){
-                $('#output').text($('#input').val().split("").reverse().join(""));
+                let result = []
+               
+                let inputArray = $('#input').val().split("")
+                let index = 0
+                inputArray.forEach((char) => {
+                    if (char === " "){
+                        result.push(char)
+                    } else {
+                        index =  alphabetArray.indexOf(char)
+                        result.push(alphabetArray.reverse()[index]);
+                    }
+                    
+                })
+                $('#output').text(result.join(""))
             }
 
             // Mã hóa vòng
